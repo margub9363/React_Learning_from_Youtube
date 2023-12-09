@@ -1,9 +1,19 @@
 import "./App.css";
+import About from "./component/About";
+import Home from "./component/Home";
+import NavBar from "./component/NavBar";
 import "./style.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <h1>Hello World!</h1>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
