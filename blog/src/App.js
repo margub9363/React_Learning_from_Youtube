@@ -1,26 +1,49 @@
 import "./App.css";
 import "./style.css";
 import ChildComponentWithInputBox from "./ChildComponentWithInputBox";
-import { useRef, forwardRef } from "react";
+import { useRef, forwardRef, useState } from "react";
 function App() {
-  let inputRef = useRef(null);
-
-  function updateInput() {
-    inputRef.current.value = 1000;
-    inputRef.current.focus();
-    inputRef.current.style.color = "red";
-  }
-
   return (
     <>
       <div className="App">
-        <h1>This is the Parent Component</h1>
-        <button onClick={updateInput}>
-          Click this to update Child input box
-        </button>
-        <ChildComponentWithInputBox ref={inputRef} />
+        <h1>HOC</h1>
+        <HocRed />
+        <HocGreen />
       </div>
     </>
   );
 }
+
+function HocRed() {
+  return (
+    <div style={{ background: "red" }}>
+      <Counter />
+    </div>
+  );
+}
+
+function HocGreen() {
+  return (
+    <div style={{ background: "green" }}>
+      <Counter />
+    </div>
+  );
+}
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h3>{count}</h3>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Update
+      </button>
+    </div>
+  );
+}
+
 export default App;
