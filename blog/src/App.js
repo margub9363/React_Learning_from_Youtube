@@ -1,17 +1,20 @@
 import "./App.css";
 import "./style.css";
 import style from "./cusom.module.css";
+import { Button } from "react-bootstrap";
 function App() {
   return (
     <div>
-      This is the main App Component and we are wroking on Different style sheet
-      <h1 className="primary">
-        Style Type 1 in React.js -- through stylesheet
-      </h1>
-      <h1 style={{ color: "red", backgroundColor: "black" }}>
-        Style Type 2 in React.js -- Inline
-      </h1>
-      <h1 className={style.success}>Style3 in React.js -- Custom Module.css</h1>
+      <div>Different varities of Button </div>
+      <Button variant="primary">Primary</Button>{" "}
+      <Button variant="secondary">Secondary</Button>{" "}
+      <Button variant="success">Success</Button>{" "}
+      <Button variant="warning">Warning</Button>{" "}
+      <Button variant="danger">Danger</Button>{" "}
+      <Button variant="info">Info</Button>{" "}
+      <Button variant="light">Light</Button>{" "}
+      <Button variant="dark">Dark</Button>
+      <Button variant="link">Link</Button>
     </div>
   );
 }
