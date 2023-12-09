@@ -1,19 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Profile from "./Profile";
-import Login from "./Login";
-import Child1 from "./Child1";
-
+import "./style.css";
+import style from "./cusom.module.css";
 function App() {
-  const getData = () => {
-    alert("Get Data Method from App.js is called");
-  };
-
   return (
     <div>
-      <h1> This is the main App Component</h1>
-      -----------------------
-      <Child1 getData={getData} />
+      This is the main App Component and we are wroking on Different style sheet
+      <h1 className="primary">
+        Style Type 1 in React.js -- through stylesheet
+      </h1>
+      <h1 style={{ color: "red", backgroundColor: "black" }}>
+        Style Type 2 in React.js -- Inline
+      </h1>
+      <h1 className={style.success}>Style3 in React.js -- Custom Module.css</h1>
     </div>
   );
 }
