@@ -1,21 +1,16 @@
 import "./App.css";
+import User from "./User";
 import "./style.css";
-import style from "./cusom.module.css";
 import { Button } from "react-bootstrap";
 function App() {
+  function alertAtParent(data) {
+    alert("Welcome : " + data);
+  }
   return (
-    <div>
-      <div>Different varities of Button </div>
-      <Button variant="primary">Primary</Button>{" "}
-      <Button variant="secondary">Secondary</Button>{" "}
-      <Button variant="success">Success</Button>{" "}
-      <Button variant="warning">Warning</Button>{" "}
-      <Button variant="danger">Danger</Button>{" "}
-      <Button variant="info">Info</Button>{" "}
-      <Button variant="light">Light</Button>{" "}
-      <Button variant="dark">Dark</Button>
-      <Button variant="link">Link</Button>
-    </div>
+    <>
+      This is Parent Component
+      <User property={alertAtParent} />
+    </>
   );
 }
 export default App;
