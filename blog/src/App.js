@@ -1,6 +1,7 @@
 import "./App.css";
 import NotFound from "./component/404NotFound";
 import About from "./component/About";
+import Filter from "./component/Filter";
 import Home from "./component/Home";
 import NavBar from "./component/NavBar";
 import User from "./component/User";
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/user/:name/:profession" element={<User />} />
+          <Route path="/filter" element={<Filter />} />
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
