@@ -9,7 +9,12 @@ function About() {
       <br />
       <Link to="/"> Click here to Navigate to Home Page</Link>
       <br />
-      <Link to="/user/Rahman/Sofware">Click to Go To Rahman User Page</Link>
+      <Link
+        to="/user/Rahman/Sofware"
+        state={{ fullNameaem: "Margub Rahman", height: "6.0" }}
+      >
+        Click to Go To Rahman User Page
+      </Link>
       <br />
       <Link to="/user/Tannu/Mechanical">Click to Go To Tannu User Page</Link>
       <br />
