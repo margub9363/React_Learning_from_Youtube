@@ -14,6 +14,11 @@ function NavBar() {
             About Page{" "}
           </NavLink>
         </li>
+        <li>
+          <NavLink className="nav-bar-NavLink " to="/contact">
+            Contact{" "}
+          </NavLink>
+        </li>
       </ul>
     </div>
   );
