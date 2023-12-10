@@ -6,8 +6,10 @@ import Company from "./component/Company";
 import Contact from "./component/Contact";
 import Filter from "./component/Filter";
 import Home from "./component/Home";
+import Login from "./component/Login";
 import NavBar from "./component/NavBar";
 import Other from "./component/Other";
+import Protected from "./component/Protected";
 import User from "./component/User";
 import "./style.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -17,16 +19,20 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Protected Component={Home} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/user/:name/:profession" element={<User />} />
+          <Route
+            path="/user/:name/:profession"
+            element={<Protected Component={User} />}
+          />
           <Route path="/filter" element={<Filter />} />
-          <Route path="/contact/" element={<Contact />}>
+          <Route path="/contact/" element={<Protected Component={Contact} />}>
             <Route path="company" element={<Company />} />
             <Route path="channel" element={<Channel />} />
             <Route path="other" element={<Other />} />
           </Route>
-          {/* <Route path="/*" element={<Navigate to="/" />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </>
