@@ -1,48 +1,23 @@
 import "./App.css";
-import "./style.css";
-import ChildComponentWithInputBox from "./ChildComponentWithInputBox";
-import { useRef, forwardRef, useState } from "react";
+import Child from "./Child";
+import { createContext, useState } from "react";
+import OtherChild from "./OtherChild";
+export const GlobalInfo = createContext();
 function App() {
+  const [color, setColor] = useState("red");
+  const [day, setDay] = useState("Saturday");
+  const getDay = (item) => {
+    console.log(item);
+    setDay(item);
+  };
   return (
     <>
-      <div className="App">
-        <h1>HOC</h1>
-        <HocRed />
-        <HocGreen />
-      </div>
+      <GlobalInfo.Provider value={{ appColor: color, getDay: getDay }}>
+        <h1>App Component. Today is {day}</h1>
+        <Child />
+        <OtherChild />
+      </GlobalInfo.Provider>
     </>
-  );
-}
-
-function HocRed() {
-  return (
-    <div style={{ background: "red" }}>
-      <Counter />
-    </div>
-  );
-}
-
-function HocGreen() {
-  return (
-    <div style={{ background: "green" }}>
-      <Counter />
-    </div>
-  );
-}
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <h3>{count}</h3>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        Update
-      </button>
-    </div>
   );
 }
 
